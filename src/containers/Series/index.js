@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SeriesList from '../../components/SeriesList';
 import Loader from '../../components/loader/index';
+import Intro from '../../components/intro/index';
 
 class Series extends Component {
 
@@ -26,6 +27,7 @@ class Series extends Component {
 
         return (
             <div>
+                <Intro message="Here you can find all of your most loved series" />
                 <p>{this.state.series.length} series found.</p>
 
                 <div>
