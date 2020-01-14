@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import SeriesList from '../../components/SeriesList';
+import Loader from '../../components/loader/index';
 
 class Series extends Component {
 
@@ -31,17 +33,17 @@ class Series extends Component {
                 </div>
 
                 { 
-                    series.length === 0 && seriesName.trim() === '' 
+                    !fetching && series.length === 0 && seriesName.trim() === '' 
                     &&
                     <p>Start searching by name using the input</p>
                 }
                 {   
-                    series.length === 0 && seriesName.trim() !==''
+                    !fetching && series.length === 0 && seriesName.trim() !==''
                     &&
                     <p>No tv series have been found with this name</p>
                 }
                 {
-                    fetching && <p>Loading...</p>
+                    fetching && <Loader />
                 }
                 {
                     !fetching && <SeriesList list={this.state.series}/> 
